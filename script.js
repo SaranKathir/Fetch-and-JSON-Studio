@@ -3,12 +3,17 @@ window.addEventListener("load", function(){
        // console.log(response.json());
        response.json().then(function(json){
     //console.log(json[0]);
+       let total=document.getElementById("totalno");
+       total.innerHTML="Total no of astronauts:" +`${json.length}`;
+      // console.log(json.length);
         const div=document.getElementById("container");
+     
         let htmlstring = '';
         for(let i=0;i<json.length;i++){
         htmlstring += `
-       <div class ="astronaut">
-    
+        
+        <div class ="astronaut">
+       
        <h3>${json[i].firstName} ${json[i].lastName}</h3>
        <ul>
             <li>HoursInSpace:${json[i].hoursInSpace}</li>
